@@ -19,3 +19,8 @@ Azure AI ドキュメント翻訳サービスを使用してAzure Blob にある
     Azure AI　翻訳サービスのマネージドID を有効化します。次に、そのマネージドIDをBlobストレージのBlob 共同作成者としてのロールを付与します。
 
 - [scripts/demo-document-translation.ps1](scripts/dem-doument-translation.ps1)     : スクリプトを実行すると Azure AI 翻訳サービスにアクセスします。Azure AI 翻訳サービスは Azure Blob Storage から英語のドキュメントを読み込み、日本語に返還後に Blob Storage にファイル出力します。PowerShell スクリプトは日本語に変換されたファイルを仮想マシンにダウンロードします。
+
+# 参考情報
+
+- [Azure リソースのマネージドIDとは](https://learn.microsoft.com/ja-jp/entra/identity/managed-identities-azure-resources/overview)
+- [Azure VM 上で Azure リソースのマネージド ID を使用してアクセス トークンを取得する方法](https://learn.microsoft.com/ja-jp/entra/identity/managed-identities-azure-resources/how-to-use-vm-token)
