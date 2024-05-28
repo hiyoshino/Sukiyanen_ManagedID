@@ -4,3 +4,4 @@
 
 ![demoimage](/media/demo001.png)
 
+[scripts/demoscript.ps1](scripts/demoscript.ps1) : Entra IDでユーザーが認証後にファイルをダウンロードします。
