@@ -1,7 +1,7 @@
 # すきやねん Azure !! マネージド ID セッション
 
-2024年5月31日に開催した すきやねん Azure !! のマネージド ID のセッションで使用した PowerShell スクリプトです。
-デモスクリプトのイメージは以下になります。Azure 上に作成した Windows 11 の仮想マシンから PowerShell のスクリプトを実行すると、Azure Blob ストレージにあるファイル[demo/demo.png](/media/demo.png)を仮想マシンの C:\demo\ にダウンロードします。
+2024年5月31日に開催した すきやねん Azure !! のマネージド ID セッションで使用した PowerShell スクリプトです。
+このスクリプトの実行イメージは以下になります。Azure 上に作成した Windows 11 の仮想マシンから PowerShell のスクリプトを実行すると、Azure Blob ストレージにあるファイル[demo/demo.png](/media/demo.png)を仮想マシンの C:\demo\ にダウンロードします。
 
 ![demoimage](/media/demo001.png)
 
@@ -14,11 +14,11 @@
 Azure AI ドキュメント翻訳サービスを使用してAzure Blob にある英語のドキュメントを日本語に変換後、Blob ストレージに出力します。その後、日本語返還後のファイルを仮想マシンにダウンロードします。
 
 ![demoimage](/media/demo002.png)
-- 事前設定
-    仮想マシンのマネージドIDを有効化します。仮想マシンのマネージドID に Azure AI 翻訳サービスのCognitive Service ユーザーのロールとAzure Storage サービスのBlob データ閲覧者のロールを付与しておきます。
-    Azure AI　翻訳サービスのマネージドID を有効化します。次に、そのマネージドIDをBlobストレージのBlob 共同作成者としてのロールを付与します。
+- 事前設定：
+    仮想マシンのマネージドIDを有効化します。仮想マシンのマネージドID に Azure AI 翻訳サービスの 「Cognitive Service ユーザー」と Azure Storage サービスの「ストレージ Blob データ閲覧者」のロールを付与しておきます。
+    Azure AI 翻訳サービスのマネージドID を有効化します。次に、そのマネージド ID を Blob ストレージの 「ストレージBlob データ共同作成者」ロールを付与します。
 
-- [scripts/demo-document-translation.ps1](scripts/dem-doument-translation.ps1)     : スクリプトを実行すると Azure AI 翻訳サービスにアクセスします。Azure AI 翻訳サービスは Azure Blob Storage から英語のドキュメントを読み込み、日本語に返還後に Blob Storage にファイル出力します。PowerShell スクリプトは日本語に変換されたファイルを仮想マシンにダウンロードします。
+- [scripts/demo-document-translation.ps1](scripts/dem-doument-translation.ps1)     : スクリプトを実行すると Azure AI 翻訳サービスにアクセスします。Azure AI 翻訳サービスは Azure Blob Storage から英語のドキュメントを読み込み、日本語変換後に Blob Storage にファイル出力します。続いてPowerShell スクリプトは日本語に変換されたファイルを仮想マシンにダウンロードします。
 
 # 参考情報
 
