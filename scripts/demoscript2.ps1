@@ -1,9 +1,9 @@
-# Entra ID Authentication with UserPrincipal
+# Powershell with Managed ID
 # Sukiyanen Azure !! DEMO PowerShell Script
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
-# Authentication Entra ID with Userprincipal 
-Connect-AzAccount -Tenant <tenant ID>
+# Connect with Managed ID
+Connect-AzAccount -Identity
 
 # Create a context object using Azure AD credentials
 $ctx = New-AzStorageContext -StorageAccountName <storageAccountName> -UseConnectedAccount
@@ -11,16 +11,13 @@ $ctx = New-AzStorageContext -StorageAccountName <storageAccountName> -UseConnect
 # List the blobs in a contaner
 #Get-AzStorageBlob -Container "demo" -Context $ctx
 
-# Blob Storage にある Demo コンテナー下の demo.png をローカルのc:\demo にダウンロードします
 # Download blobs
-
 $DLBlob = @{
   Blob        = 'demo.png'
   Container   = 'demo'
   Destination = 'C:\demo\'
   Context     = $ctx
 }
-
 Get-AzStorageBlobContent @DLBlob
 
 # Disconnect Entra ID #####
