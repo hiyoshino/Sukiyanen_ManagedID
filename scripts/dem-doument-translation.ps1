@@ -25,12 +25,31 @@ $headers = @{
 $body = '{"inputs":[{"storageType":"File","source":{"sourceUrl":"https://<StoraeAccountName>.blob.core.windows.net/demo/document-translation-sample.docx"},"targets":[{"targetUrl":"https://<StorageAccountName>.blob.core.windows.net/demo/JA_document-translation-sample.docx"
 ,"language":"ja"}]}]}'
 
-# ドキュメント翻訳実行
-Invoke-WebRequest -Method POST -Headers $headers -Uri $baseuri -Body $body
+# ドキュメント翻訳実行 ######
+$result= (Invoke-WebRequest -Method POST -Headers $headers -Uri $baseuri -Body $body)
 
-echo "Document being converted to Japanese"
+$baseurl = ($result.Headers."Operation-Location") + "/documents"
+$i = 0
 
-Start-Sleep 15
+## ドキュメント翻訳処理のステータスチェック ######
+do {
+	$result2 = Invoke-WebRequest -Method GET -Uri $baseuri -Headers $headers
+	$result3 = ($result2.Content | ConvertFrom-Json).value[0].status
+	echo $result3
+
+	if ( $result3 -eq "Succeeded"){
+		$i = 60
+	} else {
+		Start-Sleep 1
+		$i++
+	}
+	
+} while ($i -ne 60 )
+
+if ( $result3 -ne "Succeeded"){
+	echo "Document translation failed."
+	exit 0
+}
 
 ## 翻訳後のドキュメントをダウンロードする ######################
 $resource = "https://storage.azure.com/"
