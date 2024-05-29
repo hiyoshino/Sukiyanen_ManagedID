@@ -6,9 +6,10 @@
 ![demoimage](/media/demo001.png)
 
 1. [scripts/demoscript.ps1](scripts/demoscript.ps1)     : Entra IDでユーザーが認証後にファイルをダウンロードします。Az コマンドを使用しています。
-1. [scripts/demoscript2.ps1](scripts/demoscript2.ps1)   : Managed ID でファイルをダウンロードします。 Az コマンドを使用しています。
-1. [scripts/demoscript3.ps1](scripts/demoscript3.ps1)   : Managed ID でファイルをダウンロードします。 REST API を使用し、invoke-WebRequest でIMDSからアクセストークンを取得しています。
-1. [scripts/demoscript4.ps1](scripts/demoscript4.ps1)   : サービスプリンシパルでファイルをダウンロードします。 REST API を使用し、invoke-WebRequest でEntra ID からアクセストークンを取得しています。
+1. [scripts/demoscript2.ps1](scripts/demoscript2.ps1)   : マネージド ID で Azure Blob ストレージからファイルをダウンロードします。 Az コマンドを使用しています。
+1. [scripts/demoscript3.ps1](scripts/demoscript3.ps1)   : マネージド ID で Azure Blob ストレージからファイルをダウンロードします。 REST API を使用し、invoke-WebRequest でIMDSからアクセストークンを取得しています。
+1. [scripts/demoscript4.ps1](scripts/demoscript4.ps1)   : サービスプリンシパルでAzure Bob ストレージからファイルをダウンロードします。 REST API を使用し、invoke-WebRequest でEntra ID からアクセストークンを取得しています。
+1. [scripts/demoscript5.ps1](scripts/demoscript5.ps1)   : ユーザー割り当てマネージド ID を使って Azure Blob ストレージからファイルをダウンロードします。
 
 # マネージドIDを使用して Azure AI 翻訳サービスで英語文書を日本語に変換しダウンロード
 Azure AI ドキュメント翻訳サービスを使用してAzure Blob にある英語のドキュメントを日本語に変換後、Blob ストレージに出力します。その後、日本語返還後のファイルを仮想マシンにダウンロードします。
