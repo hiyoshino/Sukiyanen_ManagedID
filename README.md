@@ -3,6 +3,10 @@
 2024年5月31日に開催した すきやねん Azure !! のマネージド ID セッションで使用した PowerShell スクリプトです。
 このスクリプトの実行イメージは以下になります。Azure 上に作成した Windows 11 の仮想マシンから PowerShell のスクリプトを実行すると、Azure Blob ストレージにあるファイル[demo/demo.png](/media/demo.png)を仮想マシンの C:\demo\ にダウンロードします。
 
+> [!NOTE]
+> 全ての PowerShell スクリプトはサンプルであり、動作を保証するものではありません。学習のためのスクリプトです。
+> All PowerShell scripts are samples and are not guaranteed to work. Scripts are for learning purposes only.
+
 ![demoimage](/media/demo001.png)
 
 1. [scripts/demoscript.ps1](scripts/demoscript.ps1)     : Entra IDでユーザーが認証後にファイルをダウンロードします。Az コマンドを使用しています。
